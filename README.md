@@ -23,6 +23,6 @@ PRIVATE_KEY=<your_private_key>
 To start the bot, run the following command:
 
 ```bash
-node bot.js
+node Bot.js
 ```
 

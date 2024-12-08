@@ -14,7 +14,6 @@ Create a .env file in the root directory of the project and add the following va
 
 
 ```bash
-npm install
 RPC_URL=<your_ethereum_rpc_url>
 PRIVATE_KEY=<your_private_key>
 ```

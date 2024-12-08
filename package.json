@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "async": "^3.2.6",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4",
+    "p-queue": "^8.0.1"
+  }
+}

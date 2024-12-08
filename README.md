@@ -1,7 +1,7 @@
 # Ethereum Ping-Pong Bot
 
 ## Overview
-This bot listens for `Ping` events on an Ethereum smart contract, processes the transactions, and sends a `Pong` response to each `Ping` event. It broadcasts the details of the transactions (including the `Ping` and `Pong` transaction hashes) in real-time via a WebSocket server. A simple HTML interface allows you to view these logs in real-time.
+This bot listens for `Ping` events on an Ethereum smart contract, processes the transactions, and sends a `Pong` response to each `Ping` event. It broadcasts the details of the transactions including the `Ping` and `Pong` transaction hashes.
 
 ## Prerequisites
 

@@ -85,12 +85,20 @@ async function listenPings() {
 
 const queue = async.queue(async (log, callback) => {
   try {
-    await writeBlock(log.blockNumber);
-    console.log(`Transaction hash of ping: ${log.transactionHash}`);
-    const tx = await contract.pong(log.transactionHash);
+    const nonce = await provider.getTransactionCount(signer.address, "pending");
+    const tx = await contract.pong(log.transactionHash, {
+      nonce: nonce,
+      maxFeePerGas: ethers.parseUnits("100", "gwei"),
+      maxPriorityFeePerGas: ethers.parseUnits("2", "gwei"),
+    });
     console.log("Transcation hash of pong sent:", tx.hash);
     const receipt = await tx.wait(1);
     console.log("BlockNumber of pong transaction:", receipt.blockNumber);
+    if (receipt.status === 1) {
+      await writeBlock(log.blockNumber);
+    } else {
+      console.error(`Transaction failed, not writing block number.`);
+    }
     console.log("Listening for new Ping events...");
   } catch (error) {
     console.error("Error processing transaction:", error);
